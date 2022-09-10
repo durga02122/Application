@@ -12,9 +12,9 @@ function Add() {
     let history =useNavigate();
 
     const handleSubmit =(e) => {
-        e.prevenDefault();
+        e.preventDefault();
 
-        const ids =uuid();
+        const ids = uuid();
         let uniqueId = ids.slice(0,8);
 
         let a = name,
@@ -22,7 +22,7 @@ function Add() {
 
         Employees.push({id: uniqueId,Name : a, Age :b});
 
-        history('/');
+        history("/");
     }
  return  <div>
     <Form className="d-grid gap-2" style={{margin:"15rem"}}>
