@@ -7,6 +7,8 @@ import {useNavigate } from 'react-router-dom'
 function Edit() {
     const [name, setName] = useState("");
     const [age, setAge] = useState("");
+    const [address,setAddress] = useState("");
+    const [PhoneNo,setPhoneNo] = useState("");
     const [id, setId] = useState("");
 
     let history =useNavigate();
@@ -21,6 +23,8 @@ function Edit() {
         let a = Employees[index];
         a.Name = name;
         a.Age =age;
+        a.Address =address;
+        a.PhoneNo =PhoneNo;
 
         history("/");
     }
@@ -28,6 +32,8 @@ function Edit() {
      useEffect(() =>{
        setName(localStorage.getItem('Name'))
        setAge(localStorage.getItem('Age'))
+       setAge(localStorage.getItem('Address'))
+       setAge(localStorage.getItem('PhoneNo'))
        setId(localStorage.getItem('Id'))
      },[])
 
@@ -39,10 +45,22 @@ function Edit() {
         <Form.Control type="text" placeholder="Enter Name" value={name} required onChange={(e) => setName(e.target.value)}>
         </Form.Control>
     </Form.Group>
+
     <Form.Group className="mb-3" controlId="formAge">
         <Form.Control type="text" placeholder="Enter Age" value={age} required onChange={(e) => setAge(e.target.value)}>
         </Form.Control>
     </Form.Group>
+
+    <Form.Group className="mb-3" controlId="formAddress">
+        <Form.Control type="text" placeholder="Enter Address" value={address} required onChange={(e) => setAddress(e.target.value)}>
+        </Form.Control>
+    </Form.Group>
+
+    <Form.Group className="mb-3" controlId="formPhoneNo">
+        <Form.Control type="text" placeholder="Enter PhoneNo" value={PhoneNo} required onChange={(e) => setPhoneNo(e.target.value)}>
+        </Form.Control>
+    </Form.Group>
+
     <Button onClick={(e) => handleSubmit(e)} type="submit">Update</Button>
     </Form>
         </div>

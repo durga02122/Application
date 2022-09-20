@@ -8,9 +8,11 @@ function Home() {
 
     let history =useNavigate();
 
-    const handleEdit = (id,name,age) => {
+    const handleEdit = (id,name,age,address,phoneno) => {
         localStorage.setItem('Name',name);
         localStorage.setItem('Age',age);
+        localStorage.setItem('Address',address);
+        localStorage.setItem('PhoneNo',phoneno);
         localStorage.setItem('Id',id);
     }
 
@@ -39,6 +41,12 @@ function Home() {
                             Age
                          </th>
                          <th>
+                            Address
+                         </th>
+                         <th>
+                            PhoneNo
+                         </th>
+                         <th>
                             Actions
                          </th>
 
@@ -58,8 +66,14 @@ function Home() {
                                         {item.Age}
                                     </td>
                                     <td>
+                                        {item.Address}
+                                    </td>
+                                    <td>
+                                        {item.PhoneNo}
+                                    </td>
+                                    <td>
                                       <Link to={'./edit'}>
-                                      <Button onClick={() => handleEdit(item.id,item.Name,item.Age)}>Edit</Button>
+                                      <Button onClick={() => handleEdit(item.id,item.Name,item.Age,item.Address,item.PhoneNo) }>Edit</Button>
                                       </Link>
                                       &nbsp;
                                       <Button onClick={() => handleDelete(item.id)}>DELETE</Button>
